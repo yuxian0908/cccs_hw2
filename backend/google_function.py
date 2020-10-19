@@ -1,10 +1,12 @@
-def hello_world(request):
+def GCD(request):
     request_json = request.get_json()
     if request_json and 'message' in request_json:
         a = request_json['message']['n1']
         b = request_json['message']['n2']
         x = int(a)
         y = int(b)
+        if (x<0 or y<0):
+            return "invalid argument"
         if (x>y):
             x,y = y,x
         m=x; x=y
@@ -13,4 +15,4 @@ def hello_world(request):
 
         return str(x)
     else:
-        return f'Hello World!'
+        return "invalid argument"
